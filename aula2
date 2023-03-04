@@ -1,0 +1,22 @@
+import java.util.Scanner;
+public class Principal {
+	public static void main(String[] args) {
+	Scanner leitor = new Scanner(System.in);
+	int num1, num2, num3, media;
+	System.out.println("Digite a nota 1: ");
+	num1 = leitor.nextInt();
+	System.out.println("Digite a nota 2: ");
+	num2 = leitor.nextInt();
+	media = num1 + num2;
+	//System.out.println(num1 > num2 ? "É maior":"Não é maior");
+	System.out.println("A média é: " + media);
+	if(media>=6) {
+		System.out.println("Aprovado");
+	}else if(media<6 && media>1) {
+		System.out.println("Exame");
+	}else {
+		System.out.println("Reprovado");
+	}
+	leitor.close();
+	}
+}
