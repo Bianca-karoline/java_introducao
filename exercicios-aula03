@@ -1,0 +1,58 @@
+import java.util.Scanner;
+public class aula03 {
+	public static void main(String[] args) {
+		String menu = "-------- MENU -------- \n"
+					+ "";
+		int opcoes = 0;
+		Scanner leitor = new Scanner(System.in);
+		opcoes = leitor.nextInt();
+        System.out.println(menu);
+		switch(opcoes) {
+		case 1:
+			for(int i=1;i<=10;i++) {
+				System.out.println("1 X " + i +" = " + 1 * i + " \t " + 
+						"2 X " + i +" = " + 2 * i + " \t " +
+                        "3 X " + i +" = " + 3 * i + " \t " +
+                        "4 X " + i +" = " + 4 * i + " \t "+
+                        "5 X " + i +" = " + 5 * i + "\n");
+			}
+            for(int i=1;i<=10;i++) {
+				System.out.println("6 X " + i +" = " + 6 * i + " \t " + 
+						"7 X " + i +" = " + 7 * i + " \t " +
+                        "8 X " + i +" = " + 8 * i + " \t " +
+                        "9 X " + i +" = " + 9 * i + " \t "+
+                        "10 X " + i +" = " + 10 * i + "\n");
+			}
+            break;
+        case 2:
+        /* Escreva uma aplicação capaz de receber 10 números (tipo ponto flutuante), calcule e imprima:
+        Os números digitados;
+        A soma dos números;
+        A média aritmética entre eles;
+        O maior número;
+        O menor número.
+        Obrigatório o uso de laço de repetição array. */
+		float num[]= new float[10];
+		float soma = 0, media = 0, maior = 0, menor = 0;
+		for(var i=0;i<10;i++){
+			num[i] = leitor.nextFloat();
+		}
+		for(var i=0;i<10;i++){
+			
+			soma += num[i];
+			media = soma / 10;
+			if(num[i]>maior){
+				maior = num[i];
+			}
+			if(i==0){
+				menor = num[i];
+			}
+			if(num[i]<menor){
+				menor = num[i];
+		}
+		}
+		System.out.println("Média: " + media + "\n Soma: " + soma + " \n Maior número: " + maior + "\n Menor número: " + menor);
+		leitor.close();
+	}
+	}
+}
