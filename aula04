@@ -1,8 +1,3 @@
-/* alunos[i] = JOptionPane.showInputDialog(null, "Digite o nome do aluno " + i);
-			String notaTemp = JOptionPane.showInputDialog(null, "Digite a nota de " + alunos[i]);
-			notas[i] = Double.parseDouble(notaTemp);
-			i++;
-*/
 package aula04;
 import java.util.Scanner;
 public class Sistema {
@@ -20,6 +15,7 @@ public class Sistema {
 		double notas[] = new double[num];
 		int i = 0;
 		double soma = 0, media = 0, maior = 0, menor = 0;
+		String nomeMaior = "", nomeMenor = "";
 		do {
 			System.out.println("Digite o nome do aluno " + i);
 			alunos[i] = leitor.next();
@@ -31,18 +27,23 @@ public class Sistema {
 			if(i==0){
 				menor = notas[i];
 				maior = notas[i];
-			}
+				nomeMaior = alunos[i];
+				nomeMenor = alunos[i];
+			}else {
 			if(notas[i]>maior) {
+				nomeMaior = alunos[i];
 				maior = notas[i];
 			}
 			if(notas[i]<menor){
 				menor = notas[i];
+				nomeMenor = alunos[i];
+			}
 			}
 			i++;
 		}while(i<num);
 		media = soma / num;
-		System.out.println("A média dos alunos é: " + media + "\nA maior nota foi: " + maior +
-				"\nA menor nota foi: " + menor);
+		System.out.println("A média dos alunos é: " + media + "\nA maior nota foi: " + nomeMaior + "\t" + maior +
+				"\nA menor nota foi: " + nomeMenor + "\t" + menor);
 		leitor.close();
 	}
 
