@@ -1,0 +1,49 @@
+/* alunos[i] = JOptionPane.showInputDialog(null, "Digite o nome do aluno " + i);
+			String notaTemp = JOptionPane.showInputDialog(null, "Digite a nota de " + alunos[i]);
+			notas[i] = Double.parseDouble(notaTemp);
+			i++;
+*/
+package aula04;
+import java.util.Scanner;
+public class Sistema {
+	public static void main(String[] args) {
+		/*
+		 * Cria um programa que receba a quantidade de alunos que o professor deseja registrar
+		 * guarde o nome e a nota de cada aluno em um vetor.
+		 * Calcule a média, maior e menor nota da turma.
+		 */
+		int num = 0;
+		Scanner leitor = new Scanner(System.in);
+		System.out.println("Olá, quantos alunos deseja registrar?");
+		num = leitor.nextInt();
+		String alunos[] = new String[num];
+		double notas[] = new double[num];
+		int i = 0;
+		double soma = 0, media = 0, maior = 0, menor = 0;
+		do {
+			System.out.println("Digite o nome do aluno " + i);
+			alunos[i] = leitor.next();
+			leitor.reset();
+			System.out.println("Digite a nota do aluno " + alunos[i]);
+			notas[i] = leitor.nextDouble();
+			leitor.reset();
+			soma += notas[i];
+			if(i==0){
+				menor = notas[i];
+				maior = notas[i];
+			}
+			if(notas[i]>maior) {
+				maior = notas[i];
+			}
+			if(notas[i]<menor){
+				menor = notas[i];
+			}
+			i++;
+		}while(i<num);
+		media = soma / num;
+		System.out.println("A média dos alunos é: " + media + "\nA maior nota foi: " + maior +
+				"\nA menor nota foi: " + menor);
+		leitor.close();
+	}
+
+}
