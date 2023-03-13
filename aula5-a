@@ -1,0 +1,47 @@
+package aula5;
+import java.util.Scanner;
+public class Sistema {
+	public static void main(String[] args) {
+		/*Desenvolva uma aplicação para gerenciamento de notas;
+A aplicação deve receber  a quantidade de alunos;
+A aplicação deve criar um Array de nomes (com o tamanho == a quantidade de alunos);
+A aplicação deve criar um Array Multidimenional (matriz) de notas (com o tamanho == [quantidade de alunos] [3]);
+A coluna média deve ser calculada automaticamente
+Após o preenchimento dos nomes de alunos e das notas de cada um, imprima a maiorNota + nome do Aluno, a menorNota + nome do Aluno e, a média da turma;
+*/
+		Scanner leitor = new Scanner(System.in);
+		int qtd = 0;
+		System.out.println("Digite a quantidade de alunos da lista: ");
+		qtd = leitor.nextInt();
+		leitor.reset();
+		String alunos[] = new String[qtd];
+		double notas[][] = new double[qtd][3];
+		double soma = 0, media = 0;
+		int indexMenor = 0, indexMaior = 0;
+		for(int i = 0; i < qtd; i++) {
+			System.out.println("Digite o nome do aluno: ");
+			alunos[i] = leitor.next();
+			leitor.reset();
+			System.out.println("Digite a nota 1 do aluno:");
+			notas[i][0] = leitor.nextDouble();
+			leitor.reset();
+			System.out.println("Digite a nota 2 do aluno:");
+			notas[i][1] = leitor.nextDouble();
+			leitor.reset();
+			notas[i][2]= (notas[i][0] + notas[i][1])/2;
+			if(notas[i][2]<notas[indexMenor][2]) {
+				indexMenor = i;
+			}
+			if(notas[i][2]>notas[indexMaior][2]) {
+				indexMaior = i;
+			}
+			soma += notas[i][2];
+		}
+		media = soma / qtd;
+		System.out.println("A menor média foi: " + notas[indexMenor][2] + " do aluno " + alunos[indexMenor]);
+		System.out.println("A maior média foi: " + notas[indexMaior][2] + " do aluno " + alunos[indexMaior]);
+		System.out.println("Média da turma: " + media);
+		leitor.close();
+	}
+
+}
